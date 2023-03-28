@@ -20,8 +20,10 @@ app.get("/api/:nft", async (req, res) => {
 });
 
 app.get("/", (req, res) => {
+  const hotText = "here";
+  const url = "https://api-proxy-server-steel.vercel.app/api/nft";
   const link = res.send(
-    "Server is running, visit https://api-proxy-server-steel.vercel.app/api/nft to view the API"
+    `Server is running, click ${hotText.link(url)} to view the API`
   );
 });
 
