@@ -1,6 +1,7 @@
 const express = require("express");
 const axios = require("axios");
 const cors = require("cors");
+var path = require("path");
 
 const app = express();
 app.use(cors());
@@ -17,7 +18,15 @@ app.get("/api/:nft", async (req, res) => {
     res.json(response.data);
   });
 });
+
+app.get("/", (req, res) => {
+  const link = res.send(
+    "Server is running, visit https://api-proxy-server-steel.vercel.app/api/nft to view the API"
+  );
+});
+
 const PORT = process.env.PORT || 3001;
+
 app.listen(PORT, () => console.log(`listening on ${PORT}`));
 
 module.exports = app;
