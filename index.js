@@ -5,13 +5,14 @@ const cors = require("cors");
 const app = express();
 app.use(cors());
 
-app.get("/api/*/:authorization", async (req, res) => {
+app.get("/api/get/*", async (req, res) => {
   const urlLink = req.params[0];
-  const authorization = req.params.authorization;
+  const authHeaders = req.headers.authorization || null;
+
   await axios({
     headers: {
       "Content-Type": "application/json",
-      Authorization: authorization,
+      Authorization: authHeaders,
     },
     method: "get",
     url: urlLink,
@@ -25,11 +26,38 @@ app.get("/api/*/:authorization", async (req, res) => {
   console.log("params:", req.params);
 });
 
+app.get("/api/post/*/:data", async (req, res) => {
+  const urlLink = req.params[0];
+  const authHeaders = req.headers.authorization || null;
+  const data = req.params.data;
+
+  await axios({
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: authHeaders,
+    },
+    method: "post",
+    url: urlLink,
+    data: {
+      query: data,
+    },
+  })
+    .then(function (response) {
+      res.send(response.data);
+    })
+    .catch((err) => {
+      console.log("error", err);
+    });
+  console.log(" Post params:", req.params);
+});
+
 app.get("/", (req, res) => {
-  const hotText = "here";
-  const url = "https://api-proxy-server-steel.vercel.app/api/nft";
+  const hotText = "repo";
+  const url = "https://github.com/somramnani/api-proxy-server";
   const link = res.send(
-    `Server is running, click ${hotText.link(url)} to view the API`
+    `Server is running, check out the ${hotText.link(
+      url
+    )} to view the documentation`
   );
 });
 
