@@ -13,11 +13,11 @@ app.get("/api/*/:authorization", async (req, res) => {
       "Content-Type": "application/json",
       Authorization: authorization,
     },
-    method: "post",
+    method: "get",
     url: urlLink,
   })
     .then(function (response) {
-      res.send(res.json(response.data));
+      res.send(response.data);
     })
     .catch((err) => {
       console.log("error", err);
