@@ -1,22 +1,28 @@
 const express = require("express");
 const axios = require("axios");
 const cors = require("cors");
-var path = require("path");
 
 const app = express();
 app.use(cors());
 
-app.get("/api/:nft", async (req, res) => {
+app.get("/api/*/:authorization", async (req, res) => {
+  const urlLink = req.params[0];
+  const authorization = req.params.authorization;
   await axios({
-    headers: { "Content-Type": "application/json" },
-    method: "post",
-    url: "https://api.primitives.xyz/api/interview/searchTokens",
-    data: {
-      query: req.params.nft,
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: authorization,
     },
-  }).then(function (response) {
-    res.json(response.data);
-  });
+    method: "post",
+    url: urlLink,
+  })
+    .then(function (response) {
+      res.send(res.json(response.data));
+    })
+    .catch((err) => {
+      console.log("error", err);
+    });
+  console.log("params:", req.params);
 });
 
 app.get("/", (req, res) => {
