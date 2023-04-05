@@ -11,12 +11,10 @@
     {
       "src": "/(.*)",
       "dest": "/"
-    }
-  ],
-  "redirects": [
+    },
     {
-      "source": "/api/post/*/:data",
-      "destination": "https://api-proxy-server-steel.vercel.app/api/post/*/:data"
+      "src": "/api/post/*/:data",
+      "dest": "https://api-proxy-server-steel.vercel.app/api/post/*/:data"
     }
   ]
 }
