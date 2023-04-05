@@ -1,5 +1,5 @@
 # api-proxy-server
-A proxy server that adds CORS header to a request. The server acts as a mediator between the client and server by adding CORS headers to a request. It operates between the frontend web application that initiates the request and the server that provides the response data.
+A proxy server that bypasses the CORs error on an API request . The server acts as a mediator between the client and server by adding CORS headers to a request. It operates between the frontend web application that initiates the request and the server that provides the response data.
 
 In your front end application make a get request to https://api-proxy-server-steel.vercel.app/ with the corresponding method using one of the following routes below.
 
