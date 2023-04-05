@@ -34,6 +34,7 @@ app.get("/api/post/*/:data", async (req, res) => {
   await axios({
     headers: {
       "Content-Type": "application/json",
+      accept: "application/json",
       Authorization: authHeaders,
     },
     method: "post",
