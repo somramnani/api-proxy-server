@@ -36,6 +36,7 @@ app.get("/api/post/*/:data", async (req, res) => {
       "Content-Type": "application/json",
       accept: "application/json",
       Authorization: authHeaders,
+      "Access-Control-Allow-Origin": "*",
     },
     method: "post",
     url: urlLink,
