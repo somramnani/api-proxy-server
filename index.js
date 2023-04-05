@@ -3,7 +3,11 @@ const axios = require("axios");
 const cors = require("cors");
 
 const app = express();
-app.use(cors());
+const corsOptions = {
+  credentials: true,
+  optionSucessStatus: 200,
+};
+app.use(cors(corsOptions));
 
 app.get("/api/get/*", async (req, res) => {
   const urlLink = req.params[0];
