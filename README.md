@@ -9,4 +9,4 @@ In your front end application make a get request to https://api-proxy-server-ste
 `/api/get/{APIlink}`
 
 ### POST Request Route
-`api/post{APIlink}/{params}`
+`/api/post{APIlink}/{params}`
