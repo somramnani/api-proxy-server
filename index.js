@@ -31,23 +31,23 @@ app.get("/api/post/*/:data", async (req, res) => {
   const authHeaders = req.headers.authorization || null;
   const data = req.params.data;
 
-  // await axios({
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //     Authorization: authHeaders,
-  //   },
-  //   method: "post",
-  //   url: urlLink,
-  //   data: {
-  //     query: data,
-  //   },
-  // })
-  //   .then(function (response) {
-  //     res.send(response.data);
-  //   })
-  //   .catch((err) => {
-  //     console.log("error", err);
-  //   });
+  await axios({
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: authHeaders,
+    },
+    method: "post",
+    url: urlLink,
+    data: {
+      query: data,
+    },
+  })
+    .then(function (response) {
+      res.send(response.data);
+    })
+    .catch((err) => {
+      console.log("error", err);
+    });
   console.log(" Post params:", req.params);
 });
 
