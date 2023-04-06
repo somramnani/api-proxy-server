@@ -2,7 +2,7 @@ const express = require("express");
 const axios = require("axios");
 const cors = require("cors");
 
-const app = express().static();
+const app = express();
 const corsOptions = {
   origin: "http://localhost:3000/",
   credentials: true,
@@ -48,7 +48,7 @@ app.get("/api/post/*/:data", async (req, res) => {
     headers: {
       "Content-Type": "application/json",
       accept: "application/json",
-      // Authorization: authHeaders,
+      Authorization: authHeaders,
       "Access-Control-Allow-Origin": "*",
     },
     method: "post",
