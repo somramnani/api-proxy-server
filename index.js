@@ -2,7 +2,7 @@ const express = require("express");
 const axios = require("axios");
 const cors = require("cors");
 
-const app = express();
+const app = express().static();
 const corsOptions = {
   origin: "http://localhost:3000/",
   credentials: true,
