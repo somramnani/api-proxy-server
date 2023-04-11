@@ -4,11 +4,16 @@ const cors = require("cors");
 
 const app = express();
 const corsOptions = {
-  origin: "http://localhost:3000/",
+  origin: "*",
   credentials: true,
   optionSucessStatus: 200,
 };
 app.use(cors(corsOptions));
+
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+});
 
 app.get("/api/get/*", async (req, res) => {
   const urlLink = req.params[0];
