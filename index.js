@@ -7,6 +7,7 @@ const corsOptions = {
   origin: "*",
   credentials: true,
   optionSucessStatus: 200,
+  origin: true,
 };
 app.use(cors(corsOptions));
 
