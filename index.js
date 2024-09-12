@@ -4,11 +4,22 @@ const cors = require("cors");
 
 const app = express();
 const corsOptions = {
-  origin: "http://localhost:3000/",
+  origin: "*",
   credentials: true,
   optionSucessStatus: 200,
+  origin: true,
 };
 app.use(cors(corsOptions));
+
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", req.headers.origin);
+  res.header("Access-Control-Allow-Credentials", true);
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
 
 app.get("/api/get/*", async (req, res) => {
   const urlLink = req.params[0];
@@ -50,6 +61,8 @@ app.get("/api/post/*/:data", async (req, res) => {
       accept: "application/json",
       Authorization: authHeaders,
       "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+      "Access-Control-Allow-Credentials": true,
     },
     method: "post",
     url: urlLink,
