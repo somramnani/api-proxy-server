@@ -20,6 +20,9 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 app.get("/api/get/*", async (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*"); // Allow all origins
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE"); // Allow certain methods
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
   const urlLink = req.params[0];
   const authHeaders = req.headers.authorization || null;
 
