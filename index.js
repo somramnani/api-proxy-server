@@ -3,10 +3,21 @@ const axios = require("axios");
 const cors = require("cors");
 
 const app = express();
+const allowedOrigins = [
+  "https://api-proxy-server-git-fix-vercel-deployment-somramnanis-projects.vercel.app/",
+  "https://api-proxy-server-algy6v65w-somramnanis-projects.vercel.app/",
+];
+
 const corsOptions = {
   origin:
     process.env.NODE_ENV === "production"
-      ? "https://api-proxy-server-git-fix-vercel-deployment-somramnanis-projects.vercel.app/"
+      ? (origin, callback) => {
+          if (allowedOrigins.includes(origin)) {
+            callback(null, true);
+          } else {
+            callback(new Error("Not allowed by CORS"));
+          }
+        }
       : "http://localhost:3001",
   credentials: true,
   optionSucessStatus: 200,
