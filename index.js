@@ -6,8 +6,8 @@ const app = express();
 const corsOptions = {
   origin:
     process.env.NODE_ENV === "production"
-      ? "https://your-app.vercel.app"
-      : "http://localhost:3000",
+      ? "https://api-proxy-server-git-fix-vercel-deployment-somramnanis-projects.vercel.app/"
+      : "http://localhost:3001",
   credentials: true,
   optionSucessStatus: 200,
 };
