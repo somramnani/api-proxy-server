@@ -3,8 +3,17 @@ const axios = require("axios");
 const cors = require("cors");
 
 const app = express();
+// const corsOptions = {
+//   origin: "http://localhost:3000/",
+//   credentials: true,
+//   optionSucessStatus: 200,
+// };
+
 const corsOptions = {
-  origin: "http://localhost:3000/",
+  origin:
+    process.env.NODE_ENV === "production"
+      ? "api-proxy-server-steel.vercel.app"
+      : "http://localhost:3000",
   credentials: true,
   optionSucessStatus: 200,
 };
