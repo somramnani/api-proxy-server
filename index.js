@@ -1,30 +1,15 @@
 const express = require("express");
 const axios = require("axios");
 const cors = require("cors");
-
 const app = express();
-const allowedOrigins = [
-  "https://api-proxy-server-git-fix-vercel-deployment-somramnanis-projects.vercel.app/",
-  "https://api-proxy-server-algy6v65w-somramnanis-projects.vercel.app/",
-];
 
-const corsOptions = {
-  origin:
-    process.env.NODE_ENV === "production"
-      ? (origin, callback) => {
-          if (allowedOrigins.includes(origin)) {
-            callback(null, true);
-          } else {
-            callback(new Error("Not allowed by CORS"));
-          }
-        }
-      : "http://localhost:3001",
-  credentials: true,
-  optionSucessStatus: 200,
-};
-app.use(cors(corsOptions));
+
+app.use(cors());
 
 app.get("/api/get/*", async (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*"); // Allow all origins
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE"); // Allow certain methods
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
   const urlLink = req.params[0];
   const authHeaders = req.headers.authorization || null;
 
