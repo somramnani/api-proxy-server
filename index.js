@@ -3,23 +3,8 @@ const axios = require("axios");
 const cors = require("cors");
 const app = express();
 
-const corsOptions = {
-  origin: "http://localhost:3000",
-  credentials: true,
-  optionsSuccessStatus: 200,
-  methods: "GET, POST",
-  allowedHeaders: "Content-Type,Authorization",
-};
 
-// const corsOptions = {
-//   origin:
-//     process.env.NODE_ENV === "production"
-//       ? "api-proxy-server-steel.vercel.app"
-//       : "http://localhost:3000",
-//   credentials: true,
-//   optionsSucessStatus: 200,
-// };
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.get("/api/get/*", async (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*"); // Allow all origins
@@ -46,14 +31,6 @@ app.get("/api/get/*", async (req, res) => {
 });
 
 app.get("/api/post/*/:data", async (req, res) => {
-  // res.setHeader("Access-Control-Allow-Origin", "*");
-  // res.setHeader("Access-Control-Allow-Credentials", "true");
-  // res.setHeader("Access-Control-Max-Age", "1800");
-  // res.setHeader("Access-Control-Allow-Headers", "content-type");
-  // res.setHeader(
-  //   "Access-Control-Allow-Methods",
-  //   "PUT, POST, GET, DELETE, PATCH, OPTIONS"
-  // );
   const urlLink = req.params[0];
   const authHeaders = req.headers.authorization || null;
   const data = req.params.data;
