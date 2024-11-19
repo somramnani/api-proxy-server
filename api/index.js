@@ -3,12 +3,12 @@ const cors = require("cors");
 const axios = require("axios");
 require("dotenv").config();
 
-const app = express();
-
 const SUPERHERO_API_KEY = process.env.SUPERHERO_API_KEY;
 
+const app = express();
+
 const corsOptions = {
-  origin: "http://localhost:3001",
+  origin: "*",
   methods: ["GET,HEAD,PUT,PATCH,POST,DELETE"],
   credentials: true,
 };
