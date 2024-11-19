@@ -33,7 +33,6 @@ app.get("/super-hero-api/:data", async (req, res) => {
     url: `https://superheroapi.com/api/${SUPERHERO_API_KEY}/search/${req.params.data}`,
   })
     .then(function (response) {
-      console.log(response.data);
       return res.send(response.data);
     })
     .catch((err) => {
@@ -68,6 +67,6 @@ app.get("/api/post/*/:data", async (req, res) => {
   console.log(" Post params:", req.params);
 });
 
-app.listen(3001, () => console.log("Server ready on port 3001."));
+app.listen(3002, () => console.log("Server ready on port 3002."));
 
 module.exports = app;
