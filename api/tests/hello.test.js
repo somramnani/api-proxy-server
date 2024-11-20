@@ -1,5 +1,9 @@
 const request = require("supertest");
-const app = require("../index");
+const { app, server } = require("../index");
+
+afterAll(() => {
+  server.close();
+});
 
 describe("GET /hello", () => {
   it('should return a JSON response with message "hello"', async () => {
