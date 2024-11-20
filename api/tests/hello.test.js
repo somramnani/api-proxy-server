@@ -1,11 +1,5 @@
 const request = require("supertest");
 const app = require("../index");
-// const server = require("../server");
-
-// afterAll(async () => {
-//   console.log("Closing server...");
-//   await new Promise((resolve) => server.close(resolve));
-// });
 
 let server;
 
@@ -15,9 +9,13 @@ beforeAll(async () => {
   });
 });
 
+// afterAll(async () => {
+//   console.log("Closing server...");
+//   await new Promise((resolve) => server.close(resolve));
+// });
+
 afterAll(async () => {
-  console.log("Closing server...");
-  await new Promise((resolve) => server.close(resolve)); // Wait for the server to shut down
+  server.close();
 });
 
 describe("GET /hello", () => {

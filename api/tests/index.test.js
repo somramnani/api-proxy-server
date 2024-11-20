@@ -14,9 +14,13 @@ beforeAll(async () => {
   });
 });
 
+// afterAll(async () => {
+//   console.log("Closing server...");
+//   await new Promise((resolve) => server.close(resolve)); // Wait for the server to shut down
+// });
+
 afterAll(async () => {
-  console.log("Closing server...");
-  await new Promise((resolve) => server.close(resolve)); // Wait for the server to shut down
+  server.close();
 });
 describe("GET /", () => {
   it("should return a welcome message with a link to the documentation", async () => {
