@@ -21,7 +21,7 @@ app.use("/hello", helloWorldRoute);
 
 app.get("/", (req, res) => {
   res.json({
-    message: "Welcome to the API Proxy Server",
+    message: "Welcome to Som's API Proxy Server",
     documentation: "https://github.com/somramnani/api-proxy-server",
     author: "Som Ramnani",
   });
