@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "node api/index"
+    "start": "node api/server"
   },
   "jest": {
     "testEnvironment": "node",

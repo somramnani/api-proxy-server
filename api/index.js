@@ -27,8 +27,8 @@ app.get("/", (req, res) => {
   });
 });
 
-const server = app.listen(3002, () =>
-  console.log("Server ready on port 3002.")
-);
+// const server = app.listen(3002, () =>
+//   console.log("Server ready on port 3002.")
+// );
 
-module.exports = { app, server };
+module.exports = app;
