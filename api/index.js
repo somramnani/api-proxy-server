@@ -1,7 +1,8 @@
+require("dotenv").config();
+
 const express = require("express");
 const cors = require("cors");
 const axios = require("axios");
-require("dotenv").config();
 
 const SUPERHERO_API_KEY = process.env.SUPERHERO_API_KEY;
 
