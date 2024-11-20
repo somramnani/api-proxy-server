@@ -2,8 +2,10 @@ const request = require("supertest");
 const app = require("../index");
 const server = require("../server");
 
-afterAll(async () => {
-  await server.close();
+afterAll(() => {
+  if (server.listening) {
+    server.close();
+  }
 });
 
 describe("GET /hello", () => {
