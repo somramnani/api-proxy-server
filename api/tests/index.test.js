@@ -8,7 +8,7 @@ afterAll(() => {
 
 describe("GET /", () => {
   it("should return a welcome message with a link to the documentation", async () => {
-    const response = await request(app).get("/");
+    const response = await request(server).get("/");
     expect(response.status).toBe(200);
     expect(response.text).toContain("Welcome to Som's API Proxy Server");
     expect(response.text).toContain(
