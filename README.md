@@ -1,4 +1,4 @@
-# API Proxy Server [![codecov](https://codecov.io/gh/somramnani/api-proxy-server/graph/badge.svg?token=P7CKS55P9U)](https://codecov.io/gh/somramnani/api-proxy-server)
+# API Proxy Server [![codecov](https://codecov.io/gh/somramnani/api-proxy-server/branch/setup%2Fcodecov/graph/badge.svg?token=P7CKS55P9U)](https://codecov.io/gh/somramnani/api-proxy-server)
 
 ## Introduction
 
