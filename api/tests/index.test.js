@@ -1,10 +1,5 @@
 const request = require("supertest");
 const app = require("../index");
-const server = require("../server");
-
-afterAll(() => {
-  server.close();
-});
 
 describe("GET /", () => {
   it("should return a welcome message with a link to the documentation", async () => {

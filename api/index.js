@@ -2,7 +2,6 @@ require("dotenv").config();
 
 const express = require("express");
 const cors = require("cors");
-const axios = require("axios");
 const superHeroAPIRoute = require("./routes/superHeroAPI");
 const helloWorldRoute = require("./routes/hello");
 
@@ -26,5 +25,13 @@ app.get("/", (req, res) => {
     author: "Som Ramnani",
   });
 });
+
+const PORT = process.env.PORT || 3000;
+
+if (process.env.NODE_ENV !== "test") {
+  app.listen(PORT, () => {
+    console.log(`Server ready on port ${PORT}.`);
+  });
+}
 
 module.exports = app;
