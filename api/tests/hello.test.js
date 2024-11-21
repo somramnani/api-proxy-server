@@ -10,8 +10,10 @@ beforeAll(async () => {
 });
 
 afterAll(async () => {
-  console.log("Closing server...");
-  await new Promise((resolve) => server.close(resolve));
+  if (server) {
+    console.log("Closing server...");
+    await new Promise((resolve) => server.close(resolve));
+  }
 });
 
 describe("GET /hello", () => {
