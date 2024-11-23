@@ -28,9 +28,7 @@ describe("GET /super-hero-api/:data", () => {
 
     const response = await request(app).get("/super-hero-api/Spider-Man");
 
-    // Assertions
-    console.log(response.body.results);
     expect(response.status).toBe(200);
-    expect(response.body.results[0].name).toBe("Spider-Man");
+    expect(response.body).toEqual(mockResponse.data);
   });
 });
